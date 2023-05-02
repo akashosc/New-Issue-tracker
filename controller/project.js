@@ -1,6 +1,12 @@
 const Project = require('../models/projectname');
 const Issue=require('../models/issue');
 
+module.exports.home=async (req,res)=>{
+    const doc=await Project.find({});
+     res.render('home',{
+         doc:doc,
+     });
+ }
 module.exports.addProject=(req,res)=>{
     res.render('editProject');
 }

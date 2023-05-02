@@ -4,14 +4,9 @@ const Project=require('../models/projectname');
 const projectController=require('../controller/project');
 const issueController=require('../controller/issue');
 
-router.get('/',async (req,res)=>{
-   const doc=await Project.find({});
-    res.render('home',{
-        doc:doc,
-    });
-})
-// all get routes
 
+// all get routes
+router.get('/',projectController.home);
 router.get('/addproject',projectController.addProject);
 router.get('/projectDet/:id',projectController.seeProject);
 router.get('/addissue/:id',issueController.addissue);
